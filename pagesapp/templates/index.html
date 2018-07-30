@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-
+{% block head %}
     <style type="text/css">
     body{
         font-family: 'Lato', sans-serif;
@@ -60,17 +52,21 @@ a.button{
     border:none;
 }
     </style>
-</head>
-<body>
+{% endblock head %}
+
+{% block content %}
+
+    {% include "header.html"  with pages=pages  %}
     <div class="box">
     <h1 class="text-center">Pages</h1><div class="text-center"><a class="button" href="{% url 'add' %}">Add Page</a></div>
     
     <ul class="text-left">
+   
         {% for page in pages %}
             <li><a href="{%url 'detail' page.slug %}"><h4>{{page.title}}</h4></a></li>
         {% endfor %}
 
     </ul>
     </div>
-</body>
-</html>
+{% endblock content %}
+

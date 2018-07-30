@@ -14,9 +14,21 @@ class PageDetail(generic.DetailView):
     template_name = 'detail.html'
     context_object_name = "page"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        pages = Page.objects.all().order_by('ordering')
+        context['pages'] = pages
+        return context
+
 
 class PageAdd(generic.CreateView):
     model = Page
     fields = ['title', 'content', 'ordering']
     template_name = 'add.html'
     success_url = '/'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        pages = Page.objects.all().order_by('ordering')
+        context['pages'] = pages
+        return context
