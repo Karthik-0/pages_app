@@ -19,6 +19,7 @@ background: linear-gradient(to right, #A83279, #D38312); /* W3C, IE 10+/ Edge, F
     .box {
  position: absolute;
   left: 50%;
+  width: 400px;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -46,11 +47,24 @@ ul>li{
 a>h4{
     margin : 5px 0;
 }
+a,a:visited{
+    color: #2F868E;
+}
+a.button{
+    color: #fff;
+}
+
+.button{
+    background: #2F868E;
+    color:#fff;
+    padding :10px 15px;
+    border:none;
+}
     </style>
 </head>
 <body>
     <div class="box">
-    <h1 class="text-center">Pages</h1>
+    <h1 class="text-center">Pages</h1><div class="text-center"><a class="button" href="{% url 'add' %}">Add Page</a></div>
     
     <ul class="text-left">
         {% for page in pages %}
