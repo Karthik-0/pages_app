@@ -1,75 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-   <style type="text/css">
-    body{
+<style type="text/css">
+    body {
         font-family: 'Lato', sans-serif;
-        background: #D38312;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #A83279, #D38312);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #A83279, #D38312); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+        background: #D38312;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #A83279, #D38312);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #A83279, #D38312);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
 
     .box {
- position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  background:#fff;
-  text-align:left;
-  {% comment %} margin: -8em 0 0 -25%; {% endcomment %}
-  padding: 1em 3em;
-}
-input, textarea {
-	padding: 15px;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	margin-bottom: 10px;
-	width: 100%;
-	box-sizing: border-box;
-	color: #2C3E50;
-	font-size: 13px;
-}
-.text-center{
-    text-align:center;
-}
-button,.button{
-    background: #2F868E;
-    color:#fff;
-    padding :10px 15px;
-    border:none;
-}
-a.button{
-    background : #A43737;
-    font: 400 13.3333px Arial;
-    text-decoration: none;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        background: #fff;
+        text-align: left;
+            {
+            % comment %
+        }
+        margin: -8em 0 0 -25%;
+            {
+            % endcomment %
+        }
+        padding: 1em 3em;
+    }
 
-}
-a.button:hover{
-    text-decoration: none;
-}
+    input,
+    textarea {
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-bottom: 10px;
+        width: 100%;
+        box-sizing: border-box;
+        color: #2C3E50;
+        font-size: 13px;
+    }
 
+    .text-center {
+        text-align: center;
+    }
+
+    button,
+    .button {
+        background: #2F868E;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+    }
+
+    a.button {
+        background: #A43737;
+        font: 400 13.3333px Arial;
+        text-decoration: none;
+
+    }
+
+    a.button:hover {
+        text-decoration: none;
+    }
 </style>
-<body>
-<div class="box">
 
-<h4 class="text-center">
-Add New Page
-    </h4>
-    <form action="{% url 'add' %}" method="post">
-    {% csrf_token %}
-        <input type="text" placeholder="Enter the title" name="title"><br/>
-        <input type="number" placeholder="Enter the order" name="ordering">
-        <textarea name="content"  placeholder="Enter the Page Content" id="" rows="5"></textarea>
-        <button type="submit">Submit</button>
-        <a class="button" href="{% url 'index' %}">Home</a>
-    </form>
-</div>
+<body>
+    <div class="box">
+
+        <h4 class="text-center">
+            Add New Page
+        </h4>
+        <form action="{% url 'add' %}" method="post">
+            {% csrf_token %}
+            <input type="text" placeholder="Enter the title" name="title">
+            <br/>
+            <input type="number" placeholder="Enter the order" name="ordering">
+            <textarea name="content" placeholder="Enter the Page Content" id="" rows="5"></textarea>
+            <button type="submit">Submit</button>
+            <a class="button" href="{% url 'index' %}">Home</a>
+        </form>
+    </div>
 </body>
+
 </html>
