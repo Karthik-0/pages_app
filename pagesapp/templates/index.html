@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,96 +8,69 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
 
     <style type="text/css">
-        body {
-            font-family: 'Lato', sans-serif;
-            background: #D38312;
-            /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #A83279, #D38312);
-            /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #A83279, #D38312);
-            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        }
+    body{
+        font-family: 'Lato', sans-serif;
+        background: #D38312;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #A83279, #D38312);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #A83279, #D38312); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-        .box {
-            position: absolute;
-            left: 50%;
-            width: 400px;
-            top: 50%;
-            -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            background: #fff;
-            text-align: left;
-                {
-                % comment %
-            }
-            margin: -8em 0 0 -25%;
-                {
-                % endcomment %
-            }
-            padding: 1em 3em;
-        }
+    }
 
-        .text-center {
-            text-align: center;
-        }
+    .box {
+ position: absolute;
+  left: 50%;
+  width: 400px;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background:#fff;
+  text-align:left;
+  padding: 1em 3em;
+}
+.text-center{
+    text-align: center;
+}
+.text-left{
+    text-align: left;
+}
+a{
+    text-decoration:none;
+}
+ul{
+    padding:0;
+}
+ul>li{
+    text-decoration:none;
+    list-style-type:none;
+}
+a>h4{
+    margin : 5px 0;
+}
+a,a:visited{
+    color: #2F868E;
+}
+a.button{
+    color: #fff;
+}
 
-        .text-left {
-            text-align: left;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        ul {
-            padding: 0;
-        }
-
-        ul>li {
-            text-decoration: none;
-            list-style-type: none;
-        }
-
-        a>h4 {
-            margin: 5px 0;
-        }
-
-        a,
-        a:visited {
-            color: #2F868E;
-        }
-
-        a.button {
-            color: #fff;
-        }
-
-        .button {
-            background: #2F868E;
-            color: #fff;
-            padding: 10px 15px;
-            border: none;
-        }
+.button{
+    background: #2F868E;
+    color:#fff;
+    padding :10px 15px;
+    border:none;
+}
     </style>
 </head>
-
 <body>
     <div class="box">
-        <h1 class="text-center">Pages</h1>
-        <div class="text-center">
-            <a class="button" href="{% url 'add' %}">Add Page</a>
-        </div>
+    <h1 class="text-center">Pages</h1><div class="text-center"><a class="button" href="{% url 'add' %}">Add Page</a></div>
+    
+    <ul class="text-left">
+        {% for page in pages %}
+            <li><a href="{%url 'detail' page.slug %}"><h4>{{page.title}}</h4></a></li>
+        {% endfor %}
 
-        <ul class="text-left">
-            {% for page in pages %}
-            <li>
-                <a href="{%url 'detail' page.slug %}">
-                    <h4>{{page.title}}</h4>
-                </a>
-            </li>
-            {% endfor %}
-
-        </ul>
+    </ul>
     </div>
 </body>
-
 </html>
