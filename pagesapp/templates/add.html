@@ -39,11 +39,20 @@ input, textarea {
 .text-center{
     text-align:center;
 }
-button{
+button,.button{
     background: #2F868E;
     color:#fff;
     padding :10px 15px;
     border:none;
+}
+a.button{
+    background : #A43737;
+    font: 400 13.3333px Arial;
+    text-decoration: none;
+
+}
+a.button:hover{
+    text-decoration: none;
 }
 
 </style>
@@ -59,6 +68,7 @@ Add New Page
         <input type="number" placeholder="Enter the order" name="ordering">
         <textarea name="content"  placeholder="Enter the Page Content" id="" rows="5"></textarea>
         <button type="submit">Submit</button>
+        <a class="button" href="{% url 'index' %}">Home</a>
     </form>
 </div>
 </body>
